@@ -1,0 +1,5 @@
+qrcode[pil]
+Flask
+Flask-RESTful
+requests
+python-dotenv
