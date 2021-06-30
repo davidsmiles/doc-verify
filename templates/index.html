@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <title>DocVerify</title>
     <!-- stylesheet -->
     <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
@@ -26,10 +26,10 @@
                 </div>
                 <div class="navigation-bar">
                     <ul>
-
-                        <li><a href="/sign">Sign Document</a></li>
-                        <li><a href="/verify/admin">Verify Document</a></li>
-                        <li><a href="/admin/signup" class="btn">Sign Up</a></li>
+                        
+                        <li><a href="/verify/user">Verify Document</a></li>
+                        <li><a href="#">Request Transcript </a></li>
+                        <li><a href="/signup" class="btn">Sign Up</a></li>
                         <li><a href="/login" class="btn">Login</a></li>
                     </ul>
                 </div>
@@ -46,17 +46,18 @@
             <img src="{{url_for('static', filename='images/shape5.svg')}}" alt="shape" class="shape shape5">
             <div class="home-wrapper d-flex">
                 <div class="col-left">
-                    <h1>Sign <br>
-                        Institution Documents</h1>
-                        <p>Verify certain academic documents</p>
+                    <h1>Verify <br>
+                        Degree Certificates</h1>
+                        <p>Request Certificates from  <br>
+                        Various Institutions</p>
                     <ul>
                         <li><img src="{{url_for('static', filename='images/health.svg')}}" alt="health">Secure</li>
                         <li><img src="{{url_for('static', filename='images/car.svg')}}" alt="car">Reliable</li>
                         <li><img src="{{url_for('static', filename='images/home.svg')}}" alt="Home">Fast</li>
                     </ul>
                     <div class="btn-section d-flex">
-                        <a href="/sign" class="btn-start">Sign</a>
-                        <a href="/verify/admin" class="btn-play">Verify Doc</a>
+                        <a href="/request" class="btn-start">Request</a>
+                        <a href="/verify/user" class="btn-play">Verify Script</a>
                     </div>
                 </div>
                 <div class="home-image">

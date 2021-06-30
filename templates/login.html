@@ -1,37 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login</title>
-<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+	<title>DocVerify Login</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
-<h2>Login Form</h2>
-
-<form action="/login" method="post">
-  <div class="imgcontainer">
-    <img src="{{url_for('static', filename='images/img_avatar2.png')}}" alt="Avatar" class="avatar">
-  </div>
-
-  <div class="container">
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Username" name="email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
-
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-</form>
-
+    <header>
+        <div class="container">
+            <nav class="nav d-flex">
+                <a href="#" class="logo">
+                    <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+                </a>
+                <!-- toggle bar -->
+                <div class="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="navigation-bar">
+                    <ul>
+                        <li><a href="/verify">Verify Document</a></li>
+                        <li><a href="#">Request Transcript</a></li>
+                        <!-- <li><a href="#" class="btn1">Login</a></li> -->
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+	<!-- <img class="wave" src="img/wave.png">  -->
+	 <div class="container1">
+		<div class="img1">
+			<img src="{{url_for('static', filename='images/win log.svg')}}">
+		</div>
+		<div class="login-content">
+			<form action="/login" method="post">
+				<img src="{{url_for('static', filename='images/profile.svg')}}">
+				<h2 class="title">Welcome</h2>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		<h5>Email</h5>
+           		   		<input type="text" class="input" name="email">
+           		   </div>
+           		</div>
+           		<div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	<h5>Password</h5>
+           		    	<input type="password" class="input" name="password">
+            	   </div>
+            	</div>
+            	<a href="#" class="a">Forgot Password?</a>
+            	<input type="submit" class="btn" value="Login">
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/app.js"></script>
+	<script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+	<script src="{{url_for('static', filename='js/main.js')}}"></script>
 </body>
 </html>

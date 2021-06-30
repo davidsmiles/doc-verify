@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DocVerify Login</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/reg.css')}}">
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav d-flex">
+                <a href="/index.html" class="logo">
+                    <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+                </a> 
+                <!-- toggle bar -->
+                <div class="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="navigation-bar">
+                    <ul>
+                        <!-- <li><a href="#">Verify Document</a></li>
+                        <li><a href="#">Request Transcript</a></li> -->
+                        <li><a href="/Login.html" class="btn1">Login</a></li>
+                     </ul>
+                </div>
+            </nav>
+        </div>
+    </header> 
+	<!-- <img class="wave" src="img/wave.png">  -->
+	 <div class="container1">
+        <div class="img1">
+			<img src="{{url_for('static', filename='images/welocm.svg')}}">
+		</div>
+        <div class="reg_content">
+            <form action="/admin/signup" method="post">
+        
+                <h1>Create An Account</h1>
+<!--                <h3>Please Fill in this form to create an account</h3>-->
+                
+                <fieldset>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                
+                <label for="mail">Email:</label>
+                <input type="email" id="mail" name="email">
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                
+                    <label for="job">Select Institutions:</label>
+                    <select id="job" name="institution" required>
+                        <option value="">Select Institution</option>
+                        <option>Abia State University</option>
+                        <option>Abubakar Tafawa Balewa University</option>
+                        <option>Achievers University, Owo</option>
+                        <option>Adamawa State University</option>
+                        <option>Adekunle Ajasin University</option>
+                        <option>Adeleke University</option>
+                        <option>Admiralty University of Nigeria</option>
+                        <option>Afe Babalola University</option>
+                        <option>African University of Science and Technology</option>
+                        <option>Ahmadu Bello University</option>
+                        <option>Ajayi Crowther University</option>
+                        <option>Akwa Ibom State University</option>
+                        <option>Alex Ekwueme Federal University, Ndufu-Alike</option>
+                        <option>Al-Hikmah University</option>
+                        <option>Al-Qalam University, Katsina</option>
+                        <option>Ambrose Alli University</option>
+                        <option>American University of Nigeria</option>
+                        <option>Anchor University, Lagos</option>
+                        <option>Arthur Jarvis University</option>
+                        <option>Atiba University</option>
+                        <option>Augustine University</option>
+                        <option>Babcock University</option>
+                        <option>Bauchi State University</option>
+                        <option>Bayero University Kano</option>
+                        <option>Baze University</option>
+                        <option>Bells University of Technology</option>
+                        <option>Benson Idahosa University</option>
+                        <option>Benue State University</option>
+                        <option>Bingham University</option>
+                        <option>Borno State University</option>
+                        <option>Bowen University</option>
+                        <option>Caleb University</option>
+                        <option>Caritas University</option>
+                        <option>Chrisland University</option>
+                        <option>Christopher University</option>
+                        <option>Chukwuemeka Odumegwu Ojukwu University</option>
+                        <option>Clifford University</option>
+                        <option>Coal City University</option>
+                        <option>Covenant University</option>
+                        <option>Crawford University</option>
+                        <option>Crescent University, Abeokuta</option>
+                        <option>Cross River University of Technology</option>
+                        <option>Crown Hill University</option>
+                        <option>Delta State University, Abraka</option>
+                        <option>Dominican University, Ibadan</option>
+                        <option>Eastern Palm University</option>
+                        <option>Ebonyi State University</option>
+                        <option>Edo University</option>
+                        <option>Edwin Clark University</option>
+                        <option>Ekiti State University, Ado Ekiti</option>
+                        <option>Eko University of Medical and Health Sciences</option>
+                        <option>Elizade University</option>
+                        <option>Enugu State University of Science and Technology</option>
+                        <option>Evangel University, Akaeze</option>
+                        <option>Federal University of Agriculture, Abeokuta</option>
+                        <option>Federal University of Petroleum Resources</option>
+                        <option>Federal University of Technology, Akure</option>
+                        <option>Federal University of Technology, Minna</option>
+                        <option>Federal University of Technology, Owerri</option>
+                        <option>Federal University, Birnin Kebbi</option>
+                        <option>Federal University, Dutse</option>
+                        <option>Federal University, Dutsin-Ma</option>
+                        <option>Federal University, Gashua</option>
+                        <option>Federal University, Gusau</option>
+                        <option>Federal University, Kashere</option>
+                        <option>Federal University, Lafia</option>
+                        <option>Federal University, Lokoja</option>
+                        <option>Federal University, Otuoke</option>
+                        <option>Federal University, Oye-Ekiti</option>
+                        <option>Federal University, Wukari</option>
+                        <option>Fountain University, Osogbo</option>
+                        <option>Glorious Vision University</option>
+                        <option>Godfrey Okoye University</option>
+                        <option>Gombe State University</option>
+                        <option>Gombe State University of Science and Technology</option>
+                        <option>Gregory University, Uturu</option>
+                        <option>Hallmark University, Ijebu-Itele</option>
+                        <option>Hezekiah University</option>
+                        <option>Ibrahim Badamasi Babangida University</option>
+                        <option>Igbinedion University Okada</option>
+                        <option>Ignatius Ajuru University of Education</option>
+                        <option>Imo State University</option>
+                        <option>Joseph Ayo Babalola University</option>
+                        <option>Kaduna State University</option>
+                        <option>Kano University of Science and Technology</option>
+                        <option>Kebbi State University of Science and Technology</option>
+                        <option>Kings University</option>
+                        <option>Kogi State University</option>
+                        <option>Kola Daisi University</option>
+                        <option>Kwara State University</option>
+                        <option>Kwararafa University, Wukari</option>
+                        <option>Ladoke Akintola University of Technology</option>
+                        <option>Lagos State University</option>
+                        <option>Landmark University</option>
+                        <option>Lead City University</option>
+                        <option>Legacy University, Okija</option>
+                        <option>Madonna University, Okija</option>
+                        <option>Mcpherson University</option>
+                        <option>Michael and Cecilia Ibru University</option>
+                        <option>Michael Okpara University of Agriculture</option>
+                        <option>Modibbo Adama University of Technology</option>
+                        <option>Moshood Abiola University of Science and Technology, Abeokuta</option>
+                        <option>Mountain Top University</option>
+                        <option>Nasarawa State University</option>
+                        <option>Niger Delta University</option>
+                        <option>Nigerian Maritime University, Okerenkoko</option>
+                        <option>Nile University of Nigeria</option>
+                        <option>Nnamdi Azikiwe University</option>
+                        <option>Novena University</option>
+                        <option>Obafemi Awolowo University</option>
+                        <option>Obong University</option>
+                        <option>Oduduwa University</option>
+                        <option>Olabisi Onabanjo University</option>
+                        <option>Ondo State University of Science and Technology</option>
+                        <option>Osun State University</option>
+                        <option>PAMO University of Medical Sciences</option>
+                        <option>Pan-Atlantic University</option>
+                        <option>Paul University</option>
+                        <option>Plateau State University</option>
+                        <option>Precious Cornerstone University</option>
+                        <option>Redeemer's University</option>
+                        <option>Renaissance University</option>
+                        <option>Rhema University</option>
+                        <option>Ritman University</option>
+                        <option>Rivers State University</option>
+                        <option>Salem University</option>
+                        <option>Skyline University Nigeria</option>
+                        <option>Sokoto State University</option>
+                        <option>Southwestern University, Nigeria</option>
+                        <option>Spiritan University, Nneochi</option>
+                        <option>Sule Lamido University</option>
+                        <option>Summit University Offa</option>
+                        <option>Tai Solarin University of Education</option>
+                        <option>Tansian University</option>
+                        <option>Taraba State University</option>
+                        <option>The Technical University</option>
+                        <option>Umaru Musa Yar'Adua University</option>
+                        <option>University of Abuja</option>
+                        <option>University of Africa</option>
+                        <option>University of Agriculture, Makurdi</option>
+                        <option>University of Benin</option>
+                        <option>University of Calabar</option>
+                        <option>University of Ibadan</option>
+                        <option>University of Ilorin</option>
+                        <option>University of Jos</option>
+                        <option>University of Lagos</option>
+                        <option>University of Maiduguri</option>
+                        <option>University of Medical Sciences</option>
+                        <option>University of Mkar</option>
+                        <option>University of Nigeria</option>
+                        <option>University of Port Harcourt</option>
+                        <option>University of Uyo</option>
+                        <option>Usmanu Danfodio University</option>
+                        <option>Veritas University</option>
+                        <option>Wellspring University</option>
+                        <option>Wesley University of Science and Technology</option>
+                        <option>Western Delta University</option>
+                        <option>Yobe State University</option>
+                        <option>Yusuf Maitama Sule University Kano</option>
+                        <option>Zamfara State University</option>
+                        <option></option>
+                    </select>
+                    <label for="job">Select Institutions Code:</label>
+                    <select id="job" name="inst_code" required>
+                        <option value="">Institution Code</option>
+                        <option>ABS </option>
+                        <option>CU</option>
+                        <option>BIU</option>
+                        <option>EPM</option>
+                        <option>UNIBEN</option>
+                        <option>UNILAG</option>
+                        <option>OAU</option>
+                    </select>
+                </fieldset>
+                <button type="submit">Sign Up</button>
+            </form>	
+        </div>
+
+                  
+    </div>
+    <script type="text/javascript" src="js/app.js"></script>
+	<script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+	<script src="{{url_for('static', filename='js/main.js')}}"></script>
+</body>
+</html>

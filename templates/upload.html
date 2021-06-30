@@ -14,13 +14,11 @@
     
     <!--header area start-->
     <header>
-      <!-- <label for="check">
-        <i class="fas fa-bars" id="sidebar_btn"></i>
-      </label> -->
+      
       <div class="left_area">
         <a href="#" class="logo">
-            <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
-          </a>
+          <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+        </a>
       </div>
       <div class="right_area">
         <a href="#" class="logout_btn">Logout</a>
@@ -34,44 +32,37 @@
         <i class="fa fa-bars nav_btn"></i>
       </div>
       <div class="mobile_nav_items">
-        <a href="#"><i class="fas fa-desktop"></i><span>Sign </span></a>
-        <a href="/verify/admin"><i class="fas fa-cogs"></i><span>Verify</span></a>
-        <a href="/upload"><i class="fas fa-table"></i><span>Upload Transcipt</span></a>
+        <a href="/sign"><i class="fas fa-desktop"></i><span>Sign </span></a>
+        <a href="/verify"><i class="fas fa-cogs"></i><span>Verify</span></a>
+        <a href="#"><i class="fas fa-table"></i><span>Upload Transcipt</span></a>
       </div>
     </div>
     <!--mobile navigation bar end-->
     <!--sidebar start-->
     <div class="sidebar">
       
-      <a href="#"><i class="fas fa-desktop"></i><span>Sign</span></a>
-      <a href="/verify/admin"><i class="fas fa-cogs"></i><span>Verify</span></a>
-      <a href="/upload"><i class="fas fa-table"></i><span>Upload Transcript</span></a>
+      <a href="/sign"><i class="fas fa-desktop"></i><span>Sign</span></a>
+      <a href="/verify"><i class="fas fa-cogs"></i><span>Verify</span></a>
+      <a href="#"><i class="fas fa-table"></i><span>Upload Transcript</span></a>
       
     </div>
     <!--sidebar end-->
-
     <div class="container1">
           
       <div class="reg-content">
-        <form action="/sign" method="post" enctype="multipart/form-data">
+        <form action="">
           <div class="content">
-              <h2 >Sign Document</h2>
+            <h2>Upload Transcript</h2>
               <div class="card">
-                  <label for="key">Private Key:</label>
-                      <input class="upload" type="file" name="private_key"/>
-              </div>
-              <div class="card">
-                  <label for="key">Document:</label>
-                      <input class="upload" type="file" name="document"/>
-              </div> 
-              <div>
-                  <button class="form_btn" >Sign Document</button>
-              </div>
+                  <label for="key">Select Transcript:</label>
+                      <input class="upload" type="file" name="key"/>
+              </div>                
+                  <button class="form_btn" >Upload Transcript</button>
           </div>
         </form>
       </div>
       <div class="img1">
-        <img src="{{url_for('static', filename='images/addfile.svg')}}">
+        <img src="{{url_for('static', filename='images/upload.svg')}}">
       </div>
     </div>
 
