@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DocVerify</title>
+    <title>Verify Document</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/sign.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -18,8 +18,8 @@
         <i class="fas fa-bars" id="sidebar_btn"></i>
       </label> -->
       <div class="left_area">
-        <a href="index.html" class="logo">
-          <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+        <a href="/" class="logo">
+            <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
         </a>
       </div>
       <div class="right_area">
@@ -29,11 +29,7 @@
     <!--header area end-->
 
     <!--mobile navigation bar start-->
-    <div class="mobile_nav">
-      <div class="nav_bar">
-        <i class="fa fa-bars nav_btn"></i>
-      </div>
-      <div class="mobile_nav_items">
+    <div class="mobile_nav_items">
         {% if 'admin' == logged_in_as %}
         <a href="/sign"><i class="fas fa-desktop"></i><span>Sign</span></a>
         <a href="#"><i class="fas fa-cogs"></i><span>Verify</span></a>
@@ -49,14 +45,14 @@
     <!--mobile navigation bar end-->
     <!--sidebar start-->
     <div class="sidebar">
-      
+
       {% if 'admin' == logged_in_as %}
         <a href="/sign"><i class="fas fa-desktop"></i><span>Sign</span></a>
         <a href="#"><i class="fas fa-cogs"></i><span>Verify</span></a>
         <a href="/gen/transcript"><i class="fas fa-table"></i><span>Generate Transcipt</span></a>
         {% endif %}
         {% if 'user' == logged_in_as %}
-        <a href="/request"><i class="fas fa-desktop"></i><span>Request Transcript </span></a>
+        <a href="/request"><i class="fas fa-desktop"></i><span>Request Transcript</span></a>
         <a href="#"><i class="fas fa-cogs"></i><span>Verify</span></a>
 <!--        <a href="/upload"><i class="fas fa-table"></i><span>Upload Transcipt</span></a>-->
         {% endif %}
@@ -70,18 +66,9 @@
               <div class="content">
                 <h2>Verify Document</h2>
                   <div class="card">
-                      <label for="public_key">Public Key:</label>
-                          <input  class="upload" type="file" name="public_key"/>
+                      <label for="key">Please Enter Document ID:</label>
+                          <input  type="text" name="doc_id" placeholder="Document ID"/>
                   </div>
-                  
-                  <div class="card">
-                      <label for="signature">Signature:</label>
-                          <input class="upload" type="file" name="signature"/>
-                  </div>
-                  <div class="card">
-                    <label for="document">Upload Document:</label>
-                        <input class="upload" type="file" name="document"/>
-                </div>
                       
                   <div>
                       <button class="form_btn" >Verify Document</button>

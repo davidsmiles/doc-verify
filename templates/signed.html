@@ -20,10 +20,14 @@
 	}
    .payment_header
    {
-	   background:rgba(255,102,0,1);
-	   padding:20px;
+	   background:#6c63ff;
+	   padding:10px;
        border-radius:20px 20px 0px 0px;
 
+   }
+   .logo{
+       padding-top: 0px;
+       
    }
 
    .check
@@ -41,6 +45,7 @@
 	   vertical-align:middle;
 	   line-height:50px;
 	   font-size:30px;
+       color: #6c63ff;
    }
 
     .content
@@ -61,30 +66,36 @@
         color:#fff;
         border-radius:30px;
         padding:5px 10px;
-        background:rgba(255,102,0,1);
+        background:#6c63ff;
         transition:all ease-in-out 0.3s;
     }
 
     .content a:hover
     {
         text-decoration:none;
-        background:#000;
+        background:rgb(155, 196, 235);
+        font-weight:bold ;
+        color: #6c63ff;
     }
 
 </style>
 </head>
 <body>
 <div class="container">
+    <a href="/" class="logo">
+                    <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+                </a>
    <div class="row">
       <div class="col-md-6 mx-auto mt-5">
          <div class="payment">
             <div class="payment_header">
+                
                <div class="check"><i class="fa fa-check" aria-hidden="true"></i></div>
             </div>
             <div class="content">
                <h1>Document Digitally Signed !</h1>
-               <p>The document has been successfully mapped to this Admin.</p>
-               <a href="/">Go to Home</a>
+               <p>Encrypted Document saved to the Database with ID: {{doc_id}}</p>
+               <a href="http://localhost:8080/verify/admin?doc_id={{doc_id}}">Verify Link</a>
             </div>
 
          </div>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Transcript</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/reqTrans.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+    <input type="checkbox" id="check">
+    
+    <!--header area start-->
+    <header>
+      <!-- <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label> -->
+      <div class="left_area">
+        <a href="/" class="logo">
+                    <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
+                </a>
+      </div>
+      <div class="right_area">
+        <a href="#" class="logout_btn">Logout</a>
+      </div>
+    </header>
+    <!--header area end-->
+
+    <!--mobile navigation bar start-->
+    <div class="mobile_nav">
+      <div class="nav_bar">
+        <i class="fa fa-bars nav_btn"></i>
+      </div>
+      <div class="mobile_nav_items">
+        <a href="#"><i class="fas fa-desktop"></i><span>Request Transcript </span></a>
+        <a href="/verify/user"><i class="fas fa-cogs"></i><span>Verify</span></a>
+      </div>
+    </div>
+    <!--mobile navigation bar end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      
+      <a href="#"><i class="fas fa-desktop"></i><span>Request Transcript</span></a>
+      <a href="/verify/user"><i class="fas fa-cogs"></i><span>Verify</span></a>
+      
+    </div>
+    <!--sidebar end-->
+
+    <div class="container1">
+        <form action="/request" method="post">
+            <div class="content">
+                <h2>Request For Transcript</h2>
+                    <div class="card">
+                        <label for="name">Matric Number:</label>
+                        <input type="text" id="name" name="matno">
+                    </div>
+                    <div class="card">
+                        <label for="name">Year of Graduation:</label>
+                        <input type="text" id="name" name="year">
+                    </div>
+                    <div class="card">
+                        <label for="job">Select Institutions:</label>
+                        <select id="job" name="institution" required>
+                            <option value="">Select Institution</option>
+                            <option value="aau">Ambrose Alli University</option>
+                            <option value="uniben">University of Benin</option>
+                            <option value="unilag">University of Lagos</option>
+                            <option></option>
+                        </select>
+                    </div>
+                <button type="submit">Submit</button>
+        </form>	
+        </div>
+          
+      <div class="img1">
+          <img src="{{url_for('static', filename='images/auth.svg')}}">
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('.nav_btn').click(function(){
+        $('.mobile_nav_items').toggleClass('active');
+      });
+    });
+    </script>
+
+  </body>
+</html>

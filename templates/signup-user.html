@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DocVerify Signup</title>
+	<title>DocVerify Login</title>
 	<link rel="stylesheet" href="{{url_for('static', filename='css/reg.css')}}">
     <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
     <header>
         <div class="container">
             <nav class="nav d-flex">
-                <a href="/" class="logo">
+                <a href="/index.html" class="logo">
                     <img src="{{url_for('static', filename='images/logo.png')}}" alt="logo">
                 </a> 
                 <!-- toggle bar -->
@@ -53,26 +53,14 @@
                 <input type="password" id="password" name="password" required>
                 
                 
-                    <label for="job">Select Institutions:</label>
-                    <select id="job" name="institution" required>
-                        <option>Ambrose Alli University</option>
-                        <option>University of Benin</option>
-                        <option>University of Ibadan</option>
-                        <option>University of Ilorin</option>
-                        <option>University of Lagos</option>
-                        <option>University of Port Harcourt</option>
-                        <option></option>
-                    </select>
-                    <label for="job">Select Institutions Code:</label>
-                    <select id="job" name="inst_code" required>
-                        <option value="">Institution Code</option>
-                        <option>AAU</option>
-                        <option>UNIBEN</option>
-                        <option>UNIBADAN</option>
-                        <option>UNILORIN</option>
-                        <option>UNILAG</option>
-                        <option>UNIPORT</option>
-                    </select>
+                <label for="job">Set Profile as:</label>
+                <select id="job" name="profile" required>
+                    <option value="">Select Profile</option>
+                    <option>Individual</option>
+                    <option>Company</option>
+                    <option>Institution</option>
+                    <option>Western Education Service (WES)</option>
+                </select>
                 </fieldset>
                 <button type="submit">Sign Up</button>
             </form>	

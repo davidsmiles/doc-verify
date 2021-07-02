@@ -42,7 +42,7 @@
     <!--mobile navigation bar end-->
     <!--sidebar start-->
     <div class="sidebar">
-      
+
       <a href="#"><i class="fas fa-desktop"></i><span>Sign</span></a>
       <a href="/verify/admin"><i class="fas fa-cogs"></i><span>Verify</span></a>
       <a href="/gen/transcript"><i class="fas fa-table"></i><span>Generate Transcript</span></a>
@@ -51,33 +51,44 @@
     <!--sidebar end-->
 
     <div class="container1">
-          
+
       <div class="reg-content">
         <form action="/sign" method="post" enctype="multipart/form-data">
           <div class="content">
               <h2 >Sign Document</h2>
+              {% if data %}
+                <p style="color:red;">Document with ID {{data.doc_id}} exists. Verify Doc
+                    <a style="color:red;" href="http://localhost:8080/verify/admin?doc_id={{ data.doc_id }}">here</a></p>
+              {% endif %}
+        <div class="column">
               <div class="card">
-                  <label for="key">Matric Number:</label>
-                      <input class="upload" type="text" name="matric_no"/>
-              </div>
-              <div class="card">
-                  <label for="key">Photograph:</label>
+                <label for="key">Full Name:</label>
+                    <input  type="text" name="fullname" id="name" placeholder="Fullname"/>
+                <label for="key1">Course:</label>
+                    <input  type="text" name="course" id="course" placeholder="Course"/>
+                <label for="key1">Department:</label>
+                    <input  type="text" name="department" id="dept" placeholder="Department"/>
+                <label for="key">Faculty:</label>
+                    <input  type="text" name="faculty" id="fac" placeholder="Faculty"/>
+                </div>
+
+                <div class="card">
+                    <label for="key">Graduation Year:</label>
+                    <input  type="text" name="graduation_year" id="key"placeholder="Graduation Year"/>
+                <label for="key">Matric No:</label>
+                    <input  type="text" name="matric_no" id="mat"placeholder="Matric No"/>
+                <label for="key">Class of Degree:</label>
+                    <input  type="text" name="class_of_degree" id="key" placeholder="Class of Degree"/>
+                <label for="key">Document ID Number:</label>
+                    <input  type="text" name="doc_id" id="key" placeholder="Document Id"/>
+            </div>
+            </div>
+              <div class="card1">
+                  <label for="key">Upload Photograph:</label>
                       <input class="upload" type="file" name="photograph"/>
-              </div>
-<!--              <div class="card">-->
-<!--                  <label for="key">Course of Study:</label>-->
-<!--                      <input class="upload" type="text" name="course"/>-->
-<!--              </div>-->
-<!--              <div class="card">-->
-<!--                  <label for="key">Department:</label>-->
-<!--                      <input class="upload" type="text" name="dept"/>-->
-<!--              </div>-->
-<!--              <div class="card">-->
-<!--                  <label for="key">Faculty:</label>-->
-<!--                      <input class="upload" type="text" name="faculty"/>-->
-<!--              </div>-->
-              <div class="card">
-                  <label for="key">Document:</label>
+              </div> 
+              <div class="card1">
+                  <label for="key">Upload Document:</label>
                       <input class="upload" type="file" name="document"/>
               </div> 
               <div>
@@ -90,7 +101,8 @@
         <img src="{{url_for('static', filename='images/addfile.svg')}}">
       </div>
     </div>
-
+    
+        
 
     <script type="text/javascript">
     $(document).ready(function(){
@@ -101,4 +113,4 @@
     </script>
 
   </body>
-</html>
+</html

@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, send_from_directory, send_file, make_response
 
 app = Flask(__name__)
 
@@ -11,34 +11,17 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/admin')
-def index_admin():
-    return render_template('admin.html')
-
-
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        url = f'{uri}/signup'
-        data = dict(request.form)
-        print(data)
-        response = requests.post(url, json=data)
-        r_json = response.json()
-        return redirect(url_for('verify', logged_in_as='user'))
-
-    return render_template('signup.html')
-
-
-@app.route('/admin/signup', methods=['GET', 'POST'])
-def adminsignup():
-    if request.method == 'POST':
         url = f'{uri}/admin/signup'
         data = dict(request.form)
-        response = requests.post(url, json=data)
-        r_json = response.json()
-        return redirect(url_for('verify', logged_in_as='admin'))
+        req_signup = requests.post(url, json=data)
+        if req_signup.ok:
+            return redirect(url_for('login'))
+        return req_signup.json()
 
-    return render_template('adminsignup.html')
+    return render_template('signup.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -50,7 +33,6 @@ def login():
         if response.ok:
             r_json = response.json()
             logged_in_as = r_json['logged_in_as']
-            print(logged_in_as)
             return redirect(url_for('verify', logged_in_as=logged_in_as))
         print('unsuccessful')
 
@@ -61,30 +43,67 @@ def login():
 def sign():
     if request.method == 'POST':
         url = f'{uri}/sign'
-        data = request.files
-        response = requests.post(url, files=data)
-        if response.ok:
-            return render_template('signed.html')
+        data_files = request.files
+        data_json = request.form
+        print(request.files)
+        print(request.form)
+        response = requests.post(url, files=data_files, data=data_json)
 
-    return render_template('sign.html')
+        if response.ok:
+            response = make_response(response.content)
+            response.headers['Content-Type'] = 'application/pdf'
+            response.headers['Content-Disposition'] = \
+                'inline; filename=%s.pdf' % 'yourfilename'
+            return response
+        else:
+            return render_template('signdoc.html', data=response.json())
+
+    return render_template('signdoc.html')
 
 
 @app.route('/verify/<logged_in_as>', methods=['GET', 'POST'])
-def verify(logged_in_as):
-    if request.method == 'POST':
-        url = f'{uri}/verify'
-        data = request.files
-        response = requests.post(url, files=data)
+def verify(logged_in_as='user'):
+    url = f'{uri}/verify'
+    if 'doc_id' in request.values:
+        response = requests.post(url, data=request.values)
+        data = response.json()
         if response.ok:
-            return render_template('valid.html')
-        return render_template('invalid.html')
+            return render_template('profile.html', data=data)
+        elif response.status_code == 404:
+            return render_template('invalid.html')
+        else:
+            return render_template('invalid.html')
 
-    return render_template('verify.html', logged_in_as=logged_in_as)
+    if request.method == 'POST':
+        response = requests.post(url, data=request.form)
+        data = response.json()
+        if response.ok:
+            return render_template('profile.html', data=data)
+        elif response.status_code == 404:
+            return render_template('invalid.html')
+        else:
+            return render_template('invalid.html')
+
+    return render_template('verifyDoc.html', logged_in_as=logged_in_as)
 
 
-@app.route('/upload')
+@app.route('/request', methods=['GET', 'POST'])
+def requesttrans():
+    if request.method == 'POST':
+        school = request.form['institution']
+
+        filename = f'{school}-david-transcript.pdf'
+        return send_from_directory('static', path=filename,
+                                   as_attachment=True, filename=filename)
+    return render_template('requesttrans.html')
+
+
+@app.route('/gen/transcript', methods=['GET', 'POST'])
 def upload():
-    return render_template('upload.html')
+    if request.method == 'POST':
+        return send_from_directory('static', path='uniben-david-transcript.pdf',
+                                   as_attachment=True, filename='uniben-david-transcript.pdf')
+    return render_template('gentranscript.html')
 
 
 if __name__ == '__main__':
