@@ -58,7 +58,7 @@
               <h2 >Sign Document</h2>
               {% if data %}
                 <p style="color:red;">Document with ID {{data.doc_id}} exists. Verify Doc
-                    <a style="color:red;" href="http://localhost:8080/verify/admin?doc_id={{ data.doc_id }}">here</a></p>
+                    <a style="color:red;" href="{{ request.host_url }}/verify/admin?doc_id={{ data.doc_id }}">here</a></p>
               {% endif %}
         <div class="column">
               <div class="card">
