@@ -40,7 +40,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="http://localhost:5000/student/{{ data['doc_id'] }}/image" class="rounded-circle" width="150">
+                    <img src="{{ request.host_url[:-5] }}5000/student/{{ data['doc_id'] }}/image" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4>{{ data['fullname'] }}</h4>
                     </div>

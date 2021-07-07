@@ -46,15 +46,13 @@ def sign():
         url = f'{uri}/sign'
         data_files = request.files
         data_json = request.form
-        print(request.files)
-        print(request.form)
         response = requests.post(url, files=data_files, data=data_json)
 
         if response.ok:
             response = make_response(response.content)
             response.headers['Content-Type'] = 'application/pdf'
             response.headers['Content-Disposition'] = \
-                'inline; filename=%s.pdf' % 'yourfilename'
+                'inline; filename=%s.pdf' % 'signed-certificate'
             return response
         else:
             return render_template('signdoc.html', data=response.json())
@@ -94,16 +92,28 @@ def requesttrans():
         school = request.form['institution']
 
         filename = f'{school}-david-transcript.pdf'
-        return send_from_directory('static', path=filename,
+        response = send_from_directory('static', path=filename,
                                    as_attachment=True, filename=filename)
+        response = make_response(response)
+        response.headers['Content-Type'] = 'application/pdf'
+        response.headers['Content-Disposition'] = \
+            'inline; filename=%s.pdf' % 'uniben-david-transcript'
+        return response
+
     return render_template('requesttrans.html')
 
 
 @app.route('/gen/transcript', methods=['GET', 'POST'])
 def upload():
     if request.method == 'POST':
-        return send_from_directory('static', path='uniben-david-transcript.pdf',
+        response = send_from_directory('static', path='uniben-david-transcript.pdf',
                                    as_attachment=True, filename='uniben-david-transcript.pdf')
+        response = make_response(response)
+        response.headers['Content-Type'] = 'application/pdf'
+        response.headers['Content-Disposition'] = \
+            'inline; filename=%s.pdf' % 'uniben-david-transcript'
+        return response
+
     return render_template('gentranscript.html')
 
 
